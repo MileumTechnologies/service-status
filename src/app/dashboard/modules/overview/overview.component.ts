@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'overview.component',
-  templateUrl: 'overview.component.html'
+  selector: 'overview-component',
+  template: `<p> Overview </p>`
 })
 export class OverviewComponent {
 

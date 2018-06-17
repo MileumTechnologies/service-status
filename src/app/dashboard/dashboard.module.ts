@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { OverviewModule, OverviewComponent } from './modules/overview/overview.module';
+import { OverviewModule } from './modules/overview/overview.module';
 
 const routes: Routes = [
-  { path: '/', pathMatch: 'full', redirectTo: '/overview' },
-  { path: '/overview', component: OverviewComponent }
-]
+  { path: '', pathMatch: 'full', redirectTo: 'overview' },
+  { path: 'overview', loadChildren: './modules/overview/overview.module#OverviewModule' },
+  { path: 'tasks', loadChildren: './modules/tasks/tasks.module#TasksModule' }
+];
 
 @NgModule({
   imports: [
@@ -16,6 +17,4 @@ const routes: Routes = [
   declarations: [],
   providers: []
 })
-export class DashboardModule {
-
-}
+export class DashboardModule { }
