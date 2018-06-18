@@ -1,1 +1,20 @@
-<router-outlet></router-outlet>
+<div class="row">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span style="margin-left: 10px">{{ title }}</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<div class="row">
+  <div class="col-xs-4 col-sm-2 col-lg-1" style="border-right: 1px solid lightgray">
+    <mat-nav-list>
+      <a mat-list-item href="#/{{option.link}}" *ngFor="let option of options"> {{ option.name }} </a>
+    </mat-nav-list>
+  </div>
+  <div class="col-xs-8 col-sm-10 col-lg-11">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+<!-- <router-outlet></router-outlet> -->
