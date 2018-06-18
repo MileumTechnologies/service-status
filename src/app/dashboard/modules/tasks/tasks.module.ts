@@ -14,7 +14,6 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [TasksComponent],
-  providers: [],
-  entryComponents: [TasksComponent]
+  providers: []
 })
 export class TasksModule { }
