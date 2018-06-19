@@ -1,8 +1,8 @@
-<mat-tab-group>
-    <mat-tab label="List">
+<mat-tab-group [selectedIndex]="selectedIndex" (selectedIndexChange)="checkSelectedIndex($event)">
+    <mat-tab label="List" (click)="navigateTo('tasks/list')">
       <list-component></list-component>
     </mat-tab>
-    <mat-tab label="New Task">
+    <mat-tab label="New Task" (click)="navigateTo('tasks/create')">
       <create-component></create-component>
     </mat-tab>
   </mat-tab-group>
