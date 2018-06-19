@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'overview',
+  selector: 'overview-component',
   template: `
     <div class="row" style="padding-top: 15px">
       <div class="col-xs-2">

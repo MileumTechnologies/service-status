@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'overview.component',
+  selector: 'overview-component',
   templateUrl: 'overview.component.html'
 })
 export class OverviewComponent {
-
+    panelOpenState = false;
 }

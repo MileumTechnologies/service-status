@@ -1,45 +1,28 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
-import {
-  MatToolbarModule,
-  MatListModule,
-  MatCardModule,
-  MatExpansionModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatSelectModule
-} from '@angular/material';
-
 import { Routes, RouterModule } from '@angular/router';
-import { OverviewComponent } from './overview.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'overview' },
-  { path: 'overview', component: OverviewComponent }
+  { path: 'overview', loadChildren: './dashboard/modules/overview/overview.module#OverviewModule' },
+  { path: 'tasks', loadChildren: './dashboard/modules/tasks/tasks.module#TasksModule'}
 ];
 
 import { AppComponent } from './app.component';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { MatToolbarModule, MatListModule } from '@angular/material';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    OverviewComponent
+    AppComponent
   ],
   imports: [
     BrowserAnimationsModule,
-    // DashboardModule,
     RouterModule.forRoot(routes, {
       useHash: true
     }),
     MatToolbarModule,
-    MatListModule,
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatExpansionModule,
-    MatSelectModule
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

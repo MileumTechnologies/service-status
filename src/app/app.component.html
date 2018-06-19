@@ -6,15 +6,12 @@
   </mat-toolbar>
 </div>
 <div class="row">
-  <div class="col-xs-4 col-sm-2 col-lg-1" style="border-right: 1px solid lightgray">
-    <mat-nav-list>
+  <div class="col-xs-3 col-sm-2 col-lg-1" style="border-right: 1px solid lightgray; padding: 0px;">
+    <mat-nav-list style="padding: 0px">
       <a mat-list-item href="#/{{option.link}}" *ngFor="let option of options"> {{ option.name }} </a>
     </mat-nav-list>
   </div>
-  <div class="col-xs-8 col-sm-10 col-lg-11">
+  <div class="col-xs-9 col-sm-10 col-lg-11" style="padding: 0px">
     <router-outlet></router-outlet>
   </div>
 </div>
-
-
-<!-- <router-outlet></router-outlet> -->

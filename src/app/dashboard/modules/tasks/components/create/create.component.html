@@ -1,0 +1,22 @@
+<div class="row" style="overflow: hidden">
+  <div class="col-xs-12" style="padding: 5px 15px; overflow: hidden;">
+    <div class="row">
+      <form>
+        <mat-form-field class="col-lg-2 col-xs-6">
+          <input matInput placeholder="Task Name">
+        </mat-form-field>
+        <mat-form-field class="col-lg-2 col-xs-4">
+          <mat-select placeholder="Type">
+            <mat-option *ngFor="let type of ['Ping']" [value]="type">
+              {{ type }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-lg-4 col-xs-12">
+          <textarea matInput placeholder="Task Description"></textarea>
+        </mat-form-field>
+        <button matButton type="submit" class="col-xs-3" style="margin: 15px; float: right"> Save </button>
+      </form>
+    </div>
+  </div>
+</div>

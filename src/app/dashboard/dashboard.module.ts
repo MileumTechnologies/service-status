@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { OverviewModule, OverviewComponent } from './modules/overview/overview.module';
+import { OverviewModule } from './modules/overview/overview.module';
 
 // const routes: Routes = [
 //   { path: '/', pathMatch: 'full', redirectTo: '/overview' },
