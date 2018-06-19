@@ -3,14 +3,17 @@
     <form>
       <div class="row">
         <mat-form-field class="col-lg-2 col-md-4 col-xs-6">
-          <input matInput placeholder="Task Name">
+          <input matInput placeholder="Task Name" required>
         </mat-form-field>
         <mat-form-field class="col-lg-2 col-md-4 col-xs-6">
-          <mat-select placeholder="Type">
-            <mat-option *ngFor="let type of ['Ping']" [value]="type">
-              {{ type }}
+          <mat-select #type placeholder="Type" required>
+            <mat-option *ngFor="let type of types" [value]="type.value">
+              {{ type.name }}
             </mat-option>
           </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-lg-3 col-md-4 col-xs-6" *ngIf="type.selected && type.selected.value === 'ping'">
+          <input matInput placeholder="Url" required>
         </mat-form-field>
       </div>
       <div class="row">

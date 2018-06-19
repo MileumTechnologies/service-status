@@ -3,6 +3,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class TasksService {
 
+    public getTypes(): any[] {
+        return [
+            { name: 'Ping', value: 'ping' }
+        ];
+    }
+
     public getTasks(): any[] {
         const tasks: any[] = [
             { id: 1, name: 'Task_1', type: 'Ping', status: true, update: new Date(), active: true },

@@ -2,14 +2,18 @@ import { Component } from '@angular/core';
 import { MatSnackBar, MatSnackBarRef } from '@angular/material';
 
 import { CreateTaskNotificationComponent } from '../notifications/create-task-notification.component';
+import { TasksService } from '../../services/tasks.service';
 
 @Component({
   selector: 'create-component',
   templateUrl: 'create.component.html'
 })
 export class CreateComponent {
-  constructor(private snackBar: MatSnackBar) {
+  public types: any[];
+
+  constructor(private snackBar: MatSnackBar, private tasksService: TasksService) {
     this.showSnackBar(true, 'Task created succesfully!');
+    this.types = this.tasksService.getTypes();
   }
 
   private showSnackBar(status: Boolean, message: String): void {
@@ -20,5 +24,10 @@ export class CreateComponent {
           message: message
         }
       });
+  }
+
+  public stringify(str: String): String {
+    console.log(str);
+    return str;
   }
 }
