@@ -1,7 +1,49 @@
 <div class="row">
   <div class="col-xs-12">
-    <mat-list *ngIf="tasks">
-      <mat-list-item *ngFor="let task of tasks"> {{ task.name }} </mat-list-item>
-    </mat-list>
+
+    <div class="mat-elevation-z8" style="margin: 15px 0px;">
+      <table mat-table class="mat-table" [dataSource]="dataSource" matSort>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+          <td mat-cell *matCellDef="let task"> {{task.name}} </td>
+        </ng-container>
+
+        <!-- Type Column -->
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+          <td mat-cell *matCellDef="let task"> {{task.type}} </td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+          <td mat-cell *matCellDef="let task" [style.color]="task.status"> {{task.status ? "UP" : "DOWN"}} </td>
+        </ng-container>
+
+        <!-- Update Column -->
+        <ng-container matColumnDef="update">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Update </th>
+          <td mat-cell *matCellDef="let task"> {{task.update}} </td>
+        </ng-container>
+
+        <!-- Active Column -->
+        <ng-container matColumnDef="active">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Active </th>
+          <td mat-cell *matCellDef="let task">
+            <mat-checkbox [(ngModel)]="task.active" color="primary" (change)="updateTaskActiveState($event, task)" style="float: left"
+              [style.paddingRight.px]="task.loadingInProgress ? 0 : 85"></mat-checkbox>
+            <mat-spinner *ngIf="task.loadingInProgress" [diameter]="21" style="position: relative; margin-left: 60px;"></mat-spinner>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let task; columns: displayedColumns;">
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+    </div>
   </div>
 </div>

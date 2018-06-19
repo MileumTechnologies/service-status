@@ -10,21 +10,24 @@ export class TasksComponent {
   public selectedIndex: number;
 
   constructor(private router: Router) {
+    this.initialIndexCheck();
+  }
+
+  public checkSelectedIndex(index: number): void {
+    if (index === 0 && !this.router.url.includes('list')) {
+      this.router.navigateByUrl('tasks/list');
+    } else if (index === 1 && !this.router.url.includes('create')) {
+      this.router.navigateByUrl('tasks/create');
+    }
+  }
+
+  private initialIndexCheck(): void {
     if (this.router.url.endsWith('create')) {
       this.selectedIndex = 1;
     } else if (this.router.url.endsWith('list')) {
       this.selectedIndex = 0;
     } else {
       this.router.navigateByUrl('tasks/list');
-    }
-  }
-
-  public checkSelectedIndex(index: number): void {
-    console.log('lol');
-    if (index === 0 && !this.router.url.endsWith('list')) {
-      this.router.navigateByUrl('tasks/list');
-    } else if (index === 1 && !this.router.url.endsWith('create')) {
-      this.router.navigateByUrl('tasks/create');
     }
   }
 }

@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+/* General */
+
 body {
   padding: 0px;
   margin: 0px;
@@ -10,7 +12,31 @@ body * {
     font-family: monospace;
 }
 
+/* Bootstrap override */
+
 .row {
   margin: 0px !important;
 }
 
+/* Notification status colors */
+.status-good {
+    background-color: #4CAF50
+}
+
+.status-bad {
+    background-color: #F44336
+}
+
+/* Material Table */
+table.mat-table {
+    width: 100%;
+}
+
+.mat-table.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.mat-table.td, .mat-table.th {
+    width: 25%;
+}
